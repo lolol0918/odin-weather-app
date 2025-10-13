@@ -1,3 +1,5 @@
+import { transformWeatherData } from "./transformWeatherData";
+
 export const getWeather = async (city) => {
 
     try {
@@ -9,7 +11,8 @@ export const getWeather = async (city) => {
 
         const data = await response.json();
 
-        return data;
+        // did this so we only get the data that we need
+        return transformWeatherData(data);
 
     } catch (error) {
         console.error('Error: ', error);
