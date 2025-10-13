@@ -32,7 +32,10 @@ export function displayWeatherCard(weatherData) {
     tempEl.textContent = `${weatherData.current.temp}°C`;
     conditionEl.textContent = weatherData.current.condition;
     humidityEl.textContent = `Humidity: ${weatherData.current.humidity}%`;
-    imgEl.src = `./assets/icons/${weatherData.current.icon || "default"}.png`;
+    imgEl.src = new URL(
+        `../assets/icons/WeatherIcons/SVG/${weatherData.current.icon || "default"}.svg`,
+        import.meta.url
+    );
 
 
     card.append(locationEl, imgEl, tempEl, conditionEl, humidityEl);
