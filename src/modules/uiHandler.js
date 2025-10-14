@@ -1,4 +1,12 @@
-export function displayWeatherCard(weatherData) {
+import { toCelsius } from "./utils/unitConverter";
+
+let currentUnit = "F"; // default value from the API
+let latestWeatherData = null; // remember last data
+
+export function displayWeatherCard(weatherData, unit = "F") {
+    latestWeatherData = weatherData; // store for toggling
+    currentUnit = unit;
+
     const container = document.getElementById("weatherContainer");
     container.innerHTML = ""; // clear old cards
 
@@ -29,7 +37,13 @@ export function displayWeatherCard(weatherData) {
 
     // fill the content
     locationEl.textContent = weatherData.location;
-    tempEl.textContent = `${weatherData.current.temp}°C`;
+
+    // for toggling fahrenheit to celsius
+    const tempValue =
+        unit === "C"
+            ? `${toCelsius(weatherData.current.temp).toFixed(1)}°C`
+            : `${weatherData.current.temp.toFixed(1)}°F`;
+    tempEl.textContent = tempValue;
     conditionEl.textContent = weatherData.current.condition;
     humidityEl.textContent = `Humidity: ${weatherData.current.humidity}%`;
     imgEl.src = new URL(
@@ -37,7 +51,13 @@ export function displayWeatherCard(weatherData) {
         import.meta.url
     );
 
-
     card.append(locationEl, imgEl, tempEl, conditionEl, humidityEl);
     container.appendChild(card);
+}
+
+export function toggleTemperatureUnit() {
+    currentUnit = currentUnit === "F" ? "C" : "F";
+    if (latestWeatherData) {
+        displayWeatherCard(latestWeatherData, currentUnit);
+    }
 }
