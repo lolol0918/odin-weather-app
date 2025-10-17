@@ -1,5 +1,5 @@
 import { getWeather } from "./weatherService";
-import { displayWeatherCard } from "./uiHandler";
+import { displayWeatherCard, displayForecast } from "./uiHandler";
 
 export async function loadWeather(city) {
     console.log("Loading weather for", city);
@@ -7,4 +7,5 @@ export async function loadWeather(city) {
     const data = await getWeather(city);
     console.timeEnd("weather fetch");
     displayWeatherCard(data);
+    displayForecast(data.forecast);
 }

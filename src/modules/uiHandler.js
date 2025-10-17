@@ -69,6 +69,6 @@ export function toggleTemperatureUnit() {
   currentUnit = currentUnit === "F" ? "C" : "F";
   if (latestWeatherData) {
     displayWeatherCard(latestWeatherData, currentUnit);
-    displayForecast(latestWeatherData, currentUnit);
+    displayForecast(latestWeatherData.forecast, currentUnit);
   }
 }
