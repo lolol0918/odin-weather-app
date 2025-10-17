@@ -4,7 +4,7 @@ import { initFormHandler } from "./formHandler.js";
 
 export const App = {
     state: {
-        currentCity: "Arayat",
+        currentCity: "Los Angeles",
         currentUnit: "F",
         weatherData: null,
     },
