@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack serve --open",
     "build": "webpack --mode production",
-    "deploy": "npm run build && gh-pages -d dist"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -24,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/lolol0918/odin-weather-app/issues"
   },
-  "homepage": "https://github.com/lolol0918/odin-weather-app#readme",
+  "homepage": "https://lolol0918.github.io/odin-weather-app/",
   "devDependencies": {
     "css-loader": "^7.1.2",
     "dotenv-webpack": "^8.1.1",
