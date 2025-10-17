@@ -10,7 +10,7 @@ export const getWeather = async (city) => {
         }
 
         const data = await response.json();
-
+        console.log(JSON.stringify(data));
         // did this so we only get the data that we need
         return transformWeatherData(data);
 

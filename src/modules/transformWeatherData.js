@@ -7,9 +7,10 @@ export const transformWeatherData = (data) => {
             humidity: data.currentConditions.humidity,
             icon: data.currentConditions.icon,
         },
-        forecast: data.days.slice(1,4).map((day) => ({
-            date: day.time,
-            temp: day.temp,
+        forecast: data.days.slice(1, 6).map((day) => ({
+            date: day.datetime,
+            high: day.tempmax,
+            low: day.tempmin,
             condition: day.conditions,
             icon: day.icon,
         }))

@@ -1,10 +1,4 @@
-import { initFormHandler } from "./modules/formHandler";
-import { loadWeather } from "./modules/weatherController";
-import { initUnitToggle } from "./modules/unitToggle";
+import { App } from "./modules/appController.js";
 import "./styles/style.css";
 
-document.addEventListener("DOMContentLoaded", () => {
-    initFormHandler();
-    initUnitToggle();
-    loadWeather("Arayat");
-});
+document.addEventListener("DOMContentLoaded", () => App.init());

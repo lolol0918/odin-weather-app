@@ -1,12 +1,29 @@
+* {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #6c7a9a 0%, #4a4a6d 100%);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
 .weather-card {
-    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    background: linear-gradient(135deg, #465a78 0%, #30304d 100%);
     border-radius: 15px;
     padding: 20px;
     max-width: 300px;
-    margin: 20px auto;
     color: white;
     box-shadow: 0 4px 8px #00000033;
-    font-family: Arial, sans-serif;
     text-align: center;
 }
 
@@ -38,4 +55,108 @@
     font-size: 0.9em;
     opacity: 0.9;
     margin-top: 5px;
+}
+/* Weather card style */
+.weather-card {
+  background: linear-gradient(135deg, #3a4a5f 0%, #2b2b40 100%);
+  flex: 0 0 300px;
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px #00000033;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+/* Forecast section title */
+.forecast-section h2 {
+  margin-bottom: 1.5rem;  /* Increased for better spacing */
+  text-align: center;
+  font-size: 1.5em;  /* Larger, more prominent title */
+  font-weight: bold;
+  color: #e0e0e0;  /* Soft white for dark theme */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);  /* Subtler, elegant border */
+  padding-bottom: 0.75rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);  /* Subtle shadow for depth */
+}
+
+/* Forecast row layout - Vertical stack for a clean, readable list */
+.forecast-row {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;  /* Increased gap for better separation between items */
+  padding: 1rem;  /* Added padding for a contained look */
+  background: linear-gradient(135deg, #465a78 0%, #30304d 100%);  /* Using your original gradient for the container to tie it in */
+  border-radius: 15px;  /* Rounded corners for a modern feel */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Deeper shadow for elevation */
+  transition: box-shadow 0.3s ease;  /* Smooth transition on hover or focus */
+}
+
+.forecast-row:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);  /* Subtle lift effect on hover */
+}
+
+/* Each forecast item - Styled as a beautiful, interactive card */
+.forecast-item {
+  display: flex;  /* Flex for alignment */
+  justify-content: space-between;  /* Space elements evenly */
+  align-items: center;  /* Center vertically for balance */
+  background: linear-gradient(135deg, #6c7a9a 0%, #4a4a6d 100%);  /* Lighter gradient as per your request */
+  padding: 15px 20px;  /* More padding for a spacious feel */
+  border-radius: 10px;  /* Consistent with overall theme */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);  /* Soft shadow for depth */
+  transition: all 0.3s ease;  /* Smooth transitions for hover and more */
+  font-family: 'Arial', sans-serif;  /* Consistent font */
+  color: #ffffff;  /* White text for high contrast */
+}
+
+.forecast-item:hover {
+  background: linear-gradient(135deg, #7a8aa9 0%, #5a5a7d 100%);  /* Slightly lighter variant on hover for interactivity */
+  transform: translateY(-5px);  /* Lift effect for a button-like feel */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);  /* Enhanced shadow on hover */
+}
+
+/* Date styling - Left side info */
+.forecast-item .date {
+  flex: 1;  /* Take up available space */
+  font-size: 1.1em;  /* Slightly larger for emphasis */
+  font-weight: 600;  /* Medium bold */
+  text-transform: uppercase;  /* Modern, clean look */
+  letter-spacing: 0.5px;  /* Subtle spacing for elegance */
+}
+
+/* Temperature styling - Right side info */
+.forecast-item .forecast-temp {
+  flex: 0 0 120px;  /* Fixed width for consistency */
+  font-size: 1.2em;  /* Larger, bold temp for quick reading */
+  font-weight: bold;
+  text-align: right;  /* Keep it right-aligned */
+  color: #e6e6e6;  /* Slightly softer white for hierarchy */
+}
+
+/* Icon styling */
+.forecast-item .forecast-icon {
+  width: 40px;  /* Slightly larger than your original for better visibility */
+  height: 40px;
+  margin-left: 15px;  /* Space from date */
+  margin-right: 15px;  /* Space from temp */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));  /* Subtle shadow on icons for pop */
+}
+
+/* Condition styling */
+.forecast-item .forecast-condition {
+  flex: 1;  /* Share space */
+  font-size: 0.95em;  /* Balanced size */
+  margin-left: 10px;  /* Space from icon */
+  text-transform: capitalize;  /* As before, for readability */
+  opacity: 0.9;  /* Subtle fade for secondary info */
+}
+
+/* Humidity styling */
+.forecast-item .forecast-humidity {
+  flex: 0 0 auto;  /* Only take needed space */
+  font-size: 0.85em;  /* Smaller for less prominence */
+  color: #d0d0d0;  /* Lighter gray for subtlety */
+  margin-left: 10px;  /* Space from condition */
+  border-left: 1px solid rgba(255, 255, 255, 0.2);  /* Subtle separator */
+  padding-left: 10px;  /* Padding for the separator */
 }
