@@ -30,5 +30,5 @@ module.exports = {
     open: true,                       // auto-open browser
     port: 8080,
   },
-  mode: "development",
+  mode: "production",
 };
