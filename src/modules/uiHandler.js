@@ -1,51 +1,30 @@
+import { createWeatherElement } from "./utils/domUtils";
 import { toCelsius } from "./utils/unitConverter";
 
 let currentUnit = "F"; // default value from the API
 let latestWeatherData = null; // remember last data
 
 export function displayWeatherCard(weatherData, unit = "F") {
-    latestWeatherData = weatherData; // store for toggling
+    latestWeatherData = weatherData;
     currentUnit = unit;
 
     const container = document.getElementById("weatherContainer");
-    container.innerHTML = ""; // clear old cards
+    container.innerHTML = "";
 
-    const card = document.createElement("div");
-    card.classList.add("weather-card");
-    card.id = "weatherCard";
+    const card = createWeatherElement("div", "weather-card", "weatherCard");
 
-    const locationEl = document.createElement("div");
-    locationEl.classList.add("location");
-    locationEl.id = "location";
+    const locationEl = createWeatherElement("div", "location", "location", weatherData.location);
+    const imgEl = createWeatherElement("img", "icon", "icon", "", "Weather Icon");
+    const tempEl = createWeatherElement("div", "temp", "temp");
+    const conditionEl = createWeatherElement("div", "condition", "condition", weatherData.current.condition);
+    const humidityEl = createWeatherElement("div", "humidity", "humidity", `Humidity: ${weatherData.current.humidity}%`);
 
-    const imgEl = document.createElement("img");
-    imgEl.classList.add("icon");
-    imgEl.id = "icon";
-    imgEl.alt = "Weather Icon";
-
-    const tempEl = document.createElement("div");
-    tempEl.classList.add("temp");
-    tempEl.id = "temp";
-
-    const conditionEl = document.createElement("div");
-    conditionEl.classList.add("condition");
-    conditionEl.id = "condition";
-
-    const humidityEl = document.createElement("div");
-    humidityEl.classList.add("humidity");
-    humidityEl.id = "humidity";
-
-    // fill the content
-    locationEl.textContent = weatherData.location;
-
-    // for toggling fahrenheit to celsius
     const tempValue =
         unit === "C"
             ? `${toCelsius(weatherData.current.temp).toFixed(1)}°C`
             : `${weatherData.current.temp.toFixed(1)}°F`;
     tempEl.textContent = tempValue;
-    conditionEl.textContent = weatherData.current.condition;
-    humidityEl.textContent = `Humidity: ${weatherData.current.humidity}%`;
+
     imgEl.src = new URL(
         `../assets/icons/WeatherIcons/SVG/${weatherData.current.icon || "default"}.svg`,
         import.meta.url
