@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 export const transformWeatherData = (data) => {
     return {
         location: data.address,
@@ -8,7 +10,7 @@ export const transformWeatherData = (data) => {
             icon: data.currentConditions.icon,
         },
         forecast: data.days.slice(1, 6).map((day) => ({
-            date: day.datetime,
+            date: day.datetime ? format(new Date(day.datetime), 'MMMM d, yyyy') : "Unknown Date",
             high: day.tempmax,
             low: day.tempmin,
             condition: day.conditions,
